@@ -54,4 +54,13 @@
 
 ```bash
 git remote add origin https://github.com/hoaikiet04/tech_app
+```
+
+## Confluen
+
+## Google sheet
+```bash
+https://docs.google.com/spreadsheets/d/1lD3BvH0etEhTN1A7wwV0Ak2d71FNW8ZFEP26dL20Zhw/edit?gid=0#gid=0
+```
+
 
