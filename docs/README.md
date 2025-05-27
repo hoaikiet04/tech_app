@@ -50,12 +50,6 @@
 
 ---
 
-## 🚀 GIT
-
-```bash
-git remote add origin https://github.com/hoaikiet04/tech_app
-```
-
 ## Confluen
 
 ## Google sheet
