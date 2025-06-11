@@ -50,7 +50,14 @@
 
 ---
 
-## Confluen
+## Atlassian
+```bash
+https://memoryimage.atlassian.net/wiki/spaces/DP/overview
+```
+## Jira
+```bash
+https://memoryimage.atlassian.net/jira/software/projects/DP/summary
+```
 
 ## Google sheet
 ```bash
