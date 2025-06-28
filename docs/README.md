@@ -59,13 +59,4 @@ https://memoryimage.atlassian.net/wiki/spaces/DP/overview
 https://memoryimage.atlassian.net/jira/software/projects/DP/summary
 ```
 
-## Google sheet
-```bash
-https://docs.google.com/spreadsheets/d/1lD3BvH0etEhTN1A7wwV0Ak2d71FNW8ZFEP26dL20Zhw/edit?gid=0#gid=0
-```
-## Figma
-```bash
-https://www.figma.com/design/C4ZvqAYd9m06Uvdic1paAt/MemoryImage?node-id=0-1&t=DU1LSoc9mHwYpWzc-1
-```
-
 
