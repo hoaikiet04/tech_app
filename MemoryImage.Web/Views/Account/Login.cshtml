@@ -1,0 +1,39 @@
+﻿@model MemoryImage.Models.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1 class="auth-logo">MemoryImage</h1>
+            <p class="auth-subtitle">Sign in to continue</p>
+        </div>
+        
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" style="font-size: 0.85rem;"></div>
+            
+            <div class="form-group">
+                <input asp-for="Email" class="form-control" placeholder="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input asp-for="Password" class="form-control" placeholder="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group form-check">
+                <input asp-for="RememberMe" class="form-check-input" />
+                <label asp-for="RememberMe" class="form-check-label">Remember me</label>
+            </div>
+            
+            <button type="submit" class="btn btn-auth">Log In</button>
+        </form>
+        
+        <div class="auth-footer">
+            <p>Don't have an account? <a asp-action="Register">Sign up</a></p>
+        </div>
+    </div>
+</div>

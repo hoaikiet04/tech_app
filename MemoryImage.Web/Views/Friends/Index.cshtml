@@ -1,0 +1,35 @@
+@model IEnumerable<MemoryImage.Models.User>
+@{
+ViewData["Title"] = "My Friends";
+}
+
+<div class="friend-list-container">
+    <h4 class="mb-4">My Friends (@Model.Count())</h4>
+
+    @if (Model != null && Model.Any())
+    {
+    <div class="list-group">
+        @foreach (var user in Model)
+        {
+        <div class="list-group-item friend-list-item">
+            <div class="d-flex w-100 align-items-center">
+                <a asp-controller="Profile" asp-action="Index" asp-route-id="@user.Id">
+                    <img src="@(user.ProfilePicture ?? "/images/pf.png")" alt="Avatar" class="friend-list-avatar" />
+                </a>
+                <div class="ms-3 flex-grow-1">
+                    <a asp-controller="Profile" asp-action="Index" asp-route-id="@user.Id" class="text-white fw-bold text-decoration-none">
+                        @user.FullName
+                    </a>
+                    <p class="mb-1 text-muted small">@("@" + user.Email.Split('@')[0])</p>
+                </div>
+                <button class="btn btn-sm btn-outline-danger" onclick="removeFriend(@user.Id)">Unfriend</button>
+            </div>
+        </div>
+        }
+    </div>
+    }
+    else
+    {
+    <p class="text-center text-muted mt-5">You haven't added any friends yet.</p>
+    }
+</div>

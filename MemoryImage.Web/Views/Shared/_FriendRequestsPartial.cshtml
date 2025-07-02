@@ -1,0 +1,38 @@
+@model IEnumerable<MemoryImage.Models.Friendship>
+
+@if (Model != null && Model.Any())
+{
+    <div class="card mb-4" style="background-color: var(--card-background-color);">
+        <div class="card-header">
+            <strong>Friend Requests</strong>
+        </div>
+        <div class="list-group list-group-flush">
+            @foreach (var request in Model)
+            {
+                <div class="list-group-item friend-request-item" id="request-@request.Id">
+                    @* Thêm điều kiện kiểm tra request.Requester không bị null *@
+                    @if (request.Requester != null)
+                    {
+                        <div class="d-flex align-items-center">
+                            <img src="@(request.Requester.ProfilePicture ?? "/images/pf.png")" alt="Avatar" class="sidebar-friend-avatar me-3" />
+                            <div class="flex-grow-1">
+                                <a asp-controller="Profile" asp-action="Index" asp-route-id="@request.Requester.Id" class="text-white fw-bold text-decoration-none">
+                                    @request.Requester.FullName
+                                </a>
+                            </div>
+                            <div class="friend-request-actions">
+                                <button class="btn btn-sm btn-primary" onclick="acceptRequest(@request.Id)">Accept</button>
+                                <button class="btn btn-sm btn-secondary" onclick="declineRequest(@request.Id)">Decline</button>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        @* Hiển thị thông báo nếu dữ liệu bị lỗi *@
+                        <div class="text-muted">Invalid request data.</div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}

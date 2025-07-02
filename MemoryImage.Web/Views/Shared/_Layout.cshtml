@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MemoryImage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+<div class="app-container">
+    <nav class="app-sidebar">
+        <a class="sidebar-logo" asp-controller="Home" asp-action="Index">
+            MemoryImage
+        </a>
+
+        <form asp-controller="Search" asp-action="Index" method="get" class="sidebar-search-form">
+            <i class="fas fa-search"></i>
+            <input type="text" name="query" class="form-control" placeholder="Search users...">
+        </form>
+
+        <ul class="sidebar-nav">
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Home" asp-action="Index" title="Home">
+                    <i class="fas fa-home fa-fw"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createPostModal" title="Create Post">
+                    <i class="far fa-plus-square fa-fw"></i>
+                    <span>Create</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Profile" asp-action="Index" asp-route-id="" title="Profile">
+                    <i class="far fa-user fa-fw"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Friends" asp-action="Index">
+                    <i class="fas fa-user-friends"></i> <span>Friends</span>
+                </a>
+            </li>
+        </ul>
+
+        @await Html.PartialAsync("_FriendSuggestionsPartial")
+
+        @if (User.Identity != null && User.Identity.IsAuthenticated)
+        {
+        <div class="sidebar-footer">
+            <!-- Thêm link Cài đặt -->
+            <a class="nav-link" asp-controller="Settings" asp-action="Index" title="Settings">
+                <i class="fas fa-cog fa-fw"></i> <span>Settings</span>
+            </a>
+            <a class="nav-link" asp-controller="Account" asp-action="Logout" title="Logout">
+                <i class="fas fa-sign-out-alt fa-fw"></i> <span>Logout</span>
+            </a>
+        </div>
+        }
+    </nav>
+    <main class="app-content" role="main">
+        @RenderBody()
+    </main>
+</div>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Admin" asp-action="Index">
+            <i class="fas fa-user-shield"></i>
+            <span>Admin</span>
+        </a>
+    </li>
+}
+<!-- Modal tạo bài viết -->
+@if (User.Identity != null && User.Identity.IsAuthenticated)
+{
+<div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: #262626; color: white; border-radius: 15px;">
+            <div class="modal-header" style="border-bottom-color: var(--border-color);">
+                <h5 class="modal-title w-100 text-center" id="createPostModalLabel">Create new post</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Home" asp-action="CreatePost" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group mb-3">
+                        <textarea name="CreatePost.Content" class="form-control" rows="5" placeholder="What's on your mind?" style="background-color: transparent; color: white; border: none; box-shadow: none;"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="imageUploadModal" class="form-label visually-hidden">Upload Image</label>
+                        <input type="file" name="CreatePost.ImageFile" class="form-control" id="imageUploadModal" accept="image/*" style="background-color: #333; border-color: var(--border-color); color: white;" />
+                    </div>
+                    <div class="modal-footer" style="border-top: none;">
+                        <button type="submit" class="btn btn-primary w-100" style="border-radius: 8px;">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+@* --- Dán toàn bộ khối này vào cuối file _Layout.cshtml, ngay trước </body> --- *@
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<script>
+    $(document).ready(function() {
+        var requestVerificationToken = $('input[name="__RequestVerificationToken"]:first').val();
+
+        //==================================================
+        // ALL INTERACTION LOGIC IS HERE
+        //==================================================
+
+        // 1. Like button
+        $('body').on('click', '.like-button', function() {
+            var button = $(this);
+            var postId = button.data('post-id');
+            var icon = button.find('i');
+            $.ajax({
+                url: '/api/postinteraction/like',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ postId: postId }),
+                success: function(response) {
+                    button.next('.like-count').text(response.likeCount);
+                    button.toggleClass('liked', response.isLiked);
+                    icon.removeClass('far fas').addClass(response.isLiked ? 'fas' : 'far');
+                }
+            });
+        });
+
+        // 2. Comment functionality
+        $('body').on('click', '.comment-toggle-button', function() {
+            $('#comment-section-' + $(this).data('post-id')).slideToggle('fast');
+        });
+
+        $('body').on('keyup', '.comment-input', function() {
+            var button = $('.post-comment-button[data-post-id="' + $(this).data('post-id') + '"]');
+            $(this).val().trim().length > 0 ? button.show() : button.hide();
+        });
+
+        function postComment(postId) {
+            var input = $('.comment-input[data-post-id="' + postId + '"]');
+            var content = input.val().trim();
+            if (!content) return;
+            $.ajax({
+                url: '/api/postinteraction/comment',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ postId: postId, content: content }),
+                success: function(response) {
+                    var escapedContent = $('<div/>').text(content).html();
+                    var newCommentHtml = `<div class="comment-item" style="display:none;"><img src="${response.profilePicture || '/images/pf.png'}" alt="Avatar" class="comment-avatar" /><div class="comment-body"><a href="/Profile/Index/${response.userId}" class="comment-user-name">${response.userName}</a><p class="comment-content">${escapedContent}</p></div></div>`;
+                    var commentList = $('#comment-list-' + postId);
+                    $(newCommentHtml).prependTo(commentList).fadeIn('slow');
+                    input.val('');
+                    $('.post-comment-button[data-post-id="' + postId + '"]').hide();
+                    var countSpan = $('.comment-toggle-button[data-post-id="' + postId + '"]').next('.comment-count');
+                    countSpan.text((parseInt(countSpan.text()) || 0) + 1);
+                }
+            });
+        }
+
+        $('body').on('click', '.post-comment-button', function() { postComment($(this).data('post-id')); });
+        $('body').on('keypress', '.comment-input', function(e) {
+            if (e.which === 13 && !e.shiftKey) {
+                e.preventDefault();
+                postComment($(this).data('post-id'));
+            }
+        });
+
+        // 3. Author Hover Card
+        var hoverTimeout;
+        $('body').on('mouseenter', '.post-author-container', function() {
+            clearTimeout(hoverTimeout);
+            var triggerElement = $(this);
+            var cardId = triggerElement.data('hovercard-id');
+            var card = $('#' + cardId);
+            if (card.length === 0) return;
+            card.appendTo('body');
+            var triggerPos = triggerElement.offset();
+            var cardHeight = card.outerHeight();
+            card.css({
+                top: triggerPos.top - cardHeight - 5,
+                left: triggerPos.left
+            }).show();
+            card.off('mouseenter').on('mouseenter', function() { clearTimeout(hoverTimeout); });
+            card.off('mouseleave').on('mouseleave', function() { $(this).hide(); });
+        }).on('mouseleave', '.post-author-container', function() {
+            var cardId = $(this).data('hovercard-id');
+            var card = $('#' + cardId);
+            hoverTimeout = setTimeout(function() { card.hide(); }, 200);
+        });
+        
+        // 4. Page-specific modal logic
+        // Create Post Modal (Home Page)
+        if ($('#createPostModal').length) {
+            $('#modalImageFile').on('change', function(event) {
+                if (event.target.files && event.target.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#modal-image-preview').attr('src', e.target.result);
+                        $('#modal-image-preview-container').show();
+                    }
+                    reader.readAsDataURL(event.target.files[0]);
+                }
+            });
+            $('#modal-remove-image-btn').on('click', function() {
+                $('#modalImageFile').val("");
+                $('#modal-image-preview-container').hide();
+                $('#modal-image-preview').attr('src', '#');
+            });
+            $('#createPostModal').on('hidden.bs.modal', function() {
+                $('#modal-remove-image-btn').click();
+                $('.create-post-modal-textarea').val('');
+            });
+        }
+
+        // Edit Profile Modal (Profile Page)
+        if ($('#editProfileModal').length) {
+            $('#imageUpload').on('change', function(event) {
+                if (event.target.files && event.target.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) { $('#imagePreview').attr('src', e.target.result); }
+                    reader.readAsDataURL(event.target.files[0]);
+                }
+            });
+        }
+
+        // 5. Global functions (for onclick attributes)
+        window.deletePost = function(postId) {
+            if (confirm('Are you sure?')) $.ajax({ url: '/Home/DeletePost', type: 'POST', data: { id: postId, __RequestVerificationToken: requestVerificationToken }, success: function(r) { if(r.success) $('#post-' + postId).fadeOut('slow'); else alert(r.message || 'Failed'); } });
+        }
+        window.sendFriendRequest = function(receiverId) {
+            $.ajax({ url: '/Friends/SendRequest', type: 'POST', data: { receiverId: receiverId, __RequestVerificationToken: requestVerificationToken }, success: function(r) { if(r.success) location.reload(); else alert('Failed'); } });
+        }
+        window.acceptRequest = function(friendshipId) {
+            $.ajax({ url: '/Friends/AcceptRequest', type: 'POST', data: { friendshipId: friendshipId, __RequestVerificationToken: requestVerificationToken }, success: function(r) { if(r.success) $('#request-' + friendshipId).fadeOut('slow'); else alert('Failed'); } });
+        }
+        window.declineRequest = function(friendshipId) {
+            $.ajax({ url: '/Friends/DeclineRequest', type: 'POST', data: { friendshipId: friendshipId, __RequestVerificationToken: requestVerificationToken }, success: function(r) { if(r.success) $('#request-' + friendshipId).fadeOut('slow'); else alert('Failed'); } });
+        }
+        window.removeFriend = function(friendId) {
+            if (confirm('Are you sure?')) $.ajax({ url: '/Friends/RemoveFriend', type: 'POST', data: { friendId: friendId, __RequestVerificationToken: requestVerificationToken }, success: function(r) { if(r.success) location.reload(); else alert('Failed'); } });
+        }
+    });
+</script>
+
+@* Giữ lại dòng này để trống, phòng trường hợp cần thêm script đặc biệt hơn trong tương lai *@
+@await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
+

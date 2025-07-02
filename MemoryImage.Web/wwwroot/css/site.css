@@ -1,0 +1,624 @@
+/* Biến màu và font chữ toàn cục */
+:root {
+    --background-color: #101010;
+    --text-color: #f1f1f1;
+    --text-color-secondary: #a8a8a8;
+    --border-color: #2f3336;
+    --card-background-color: #181818;
+    --hover-color: #202020;
+    --primary-accent-color: #1d9bf0;
+    --input-background-color: #262626;
+}
+
+/* Thiết lập cơ bản */
+html, body {
+    height: 100%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+}
+
+a {
+    color: var(--primary-accent-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Bố cục chính */
+.app-container {
+    display: flex;
+    height: 100%;
+}
+
+.app-content {
+    flex-grow: 1;
+    padding: 20px 40px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+/* Thanh bên (Sidebar) */
+.app-sidebar {
+    width: 280px;
+    border-right: 1px solid var(--border-color);
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sidebar-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    padding: 0 15px;
+    text-decoration: none;
+}
+.sidebar-logo:hover {
+    text-decoration: none;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar-nav .nav-item .nav-link, .sidebar-footer .nav-link {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.sidebar-nav .nav-item .nav-link:hover, .sidebar-footer .nav-link:hover {
+    background-color: var(--hover-color);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Ô tìm kiếm trong Sidebar */
+.sidebar-search-form {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.sidebar-search-form .form-control {
+    background-color: #202327;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 30px;
+    padding-left: 40px;
+}
+.sidebar-search-form .form-control::placeholder {
+    color: var(--text-color-secondary);
+}
+.sidebar-search-form .fa-search {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color-secondary);
+}
+
+/* Gợi ý bạn bè trong Sidebar */
+.sidebar-friends-list {
+    border-top: 1px solid var(--border-color);
+    margin-top: 20px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.sidebar-friend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.sidebar-friend-item:hover {
+    background-color: var(--hover-color);
+}
+
+.sidebar-friend-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar-friend-item span {
+    color: #e7e9ea;
+    font-weight: 500;
+}
+
+/* Thẻ bài đăng (Post Card) */
+.post-card {
+    display: flex;
+    padding: 20px 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-avatar-col {
+    width: 60px;
+    flex-shrink: 0;
+}
+
+.post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-body {
+    width: 100%;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.post-user-name {
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.post-user-name:hover {
+    text-decoration: underline;
+}
+
+.post-time {
+    font-size: 0.9em;
+    color: var(--text-color-secondary);
+}
+
+.post-content p {
+    margin: 0;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.post-image {
+    max-width: 100%;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    margin-top: 10px;
+}
+
+.post-actions {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--text-color-secondary);
+}
+
+.post-actions .btn-icon, .btn-icon {
+    background: none;
+    border: none;
+    color: var(--text-color-secondary);
+    cursor: pointer;
+    transition: color 0.2s;
+    font-size: 1.2rem;
+}
+
+.post-actions .btn-icon:hover, .post-actions .like-button.liked, .btn-icon:hover {
+    color: #f91880;
+}
+
+/* === PROFILE PAGE V2 STYLES === */
+.profile-v2-container {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.profile-v2-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 0;
+}
+
+.profile-v2-info h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.profile-v2-info .profile-username {
+    font-size: 14px;
+    color: var(--text-color-secondary);
+    margin-bottom: 12px;
+}
+
+.profile-v2-info .profile-bio {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.profile-v2-avatar-container {
+    flex-shrink: 0;
+}
+
+.profile-v2-avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--background-color);
+}
+
+.profile-v2-actions {
+    margin-top: 20px;
+}
+
+.profile-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-top: 16px;
+}
+
+.profile-tabs .tab-item {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    color: var(--text-color-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.profile-tabs .tab-item.active {
+    color: var(--text-color);
+}
+
+.profile-tabs .tab-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--primary-accent-color);
+    border-radius: 2px;
+}
+
+/* === EDIT PROFILE MODAL (FIXED) === */
+.modal-header {
+    border-bottom-color: var(--border-color) !important;
+}
+
+.modal-content {
+    background-color: var(--card-background-color) !important;
+    color: white !important;
+}
+
+.edit-profile-body {
+    padding: 0;
+}
+
+.edit-profile-banner {
+    height: 150px;
+    background-color: #333639; /* Fallback color */
+    /* Bạn có thể dùng ảnh nền nếu muốn */
+    /* background-image: url('/path/to/your/banner.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+.edit-profile-main {
+    padding: 15px;
+}
+
+.edit-profile-avatar-wrapper {
+    /* Dùng position để đặt avatar lên trên banner */
+    margin-top: -64px;
+    margin-bottom: 15px;
+    position: relative;
+    width: 96px;
+    height: 96px;
+    border: 4px solid var(--card-background-color);
+    border-radius: 50%;
+    background-color: var(--card-background-color);
+}
+
+.edit-profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.edit-profile-avatar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.edit-profile-avatar-wrapper:hover .edit-profile-avatar-overlay {
+    opacity: 1;
+}
+
+.edit-profile-form .form-control {
+    background-color: var(--input-background-color);
+    color: white;
+    border-color: var(--border-color);
+}
+
+/* === COMMENT SECTION STYLES === */
+.comment-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    display: none; /* Ẩn mặc định */
+}
+
+.comment-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px; /* Thêm khoảng trống cho thanh cuộn */
+}
+
+.comment-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.comment-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.comment-body {
+    background-color: var(--input-background-color);
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+.comment-user-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.comment-content {
+    color: var(--text-color-secondary);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.comment-input-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.comment-input {
+    flex-grow: 1;
+    background-color: var(--input-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+.comment-input:focus {
+    background-color: var(--input-background-color);
+    color: var(--text-color);
+    border-color: var(--primary-accent-color);
+    box-shadow: none;
+}
+
+.post-author-container {
+    position: relative;
+    display: inline-block;
+}
+
+.author-hover-card {
+    display: none;
+    position: absolute; /* Sẽ được JS ghi đè */
+    width: 320px; /* Dài ra một chút */
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    z-index: 1050; /* Cao hơn các phần tử khác */
+}
+
+.hover-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Căn giữa avatar và nút */
+}
+
+.hover-card-avatar {
+    width: 52px; /* Nhỏ lại một chút */
+    height: 52px;
+    border-radius: 50%;
+}
+
+.hover-card-info {
+    margin-top: 12px;
+}
+.hover-card-info .name {
+    font-weight: 700;
+    font-size: 1rem; /* Chỉnh lại kích thước font */
+    color: var(--text-color);
+}
+.hover-card-info .email {
+    font-size: 0.9em;
+    color: var(--text-color-secondary);
+}
+
+.create-post-trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.create-post-trigger:hover {
+    background-color: var(--hover-color);
+}
+
+.create-post-modal-content {
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    border-radius: 16px; 
+}
+.create-post-modal-content .modal-header,
+.create-post-modal-content .modal-footer {
+    border-color: var(--border-color);
+}
+
+.create-post-modal-textarea {
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-color) !important;
+    resize: none;
+    box-shadow: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    height: 120px;
+}
+
+.friend-request-item {
+    background-color: transparent;
+    border-color: var(--border-color) !important;
+    padding: 12px 15px;
+}
+.friend-request-actions .btn {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+.search-results-container {
+    max-width: 700px;
+    margin: 20px auto;
+}
+.search-result-item {
+    background-color: var(--card-background-color);
+    border-color: var(--border-color);
+    color: var(--text-color);
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+.search-result-item:hover {
+    background-color: var(--hover-color);
+}
+.search-result-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* === CREATE POST TRIGGER & MODAL STYLES === */
+.create-post-trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px; /* Giảm padding cho giống Threads */
+}
+.create-post-trigger:hover {
+    background-color: var(--hover-color);
+}
+
+.create-post-modal-content {
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    border-radius: 12px; /* Bo tròn ít hơn một chút */
+}
+.create-post-modal-content .modal-header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px 15px;
+}
+.create-post-modal-content .modal-header .modal-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.create-post-modal-content .modal-body {
+    padding: 15px;
+}
+.create-post-modal-content .modal-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 12px 15px;
+    display: flex; /* Căn chỉnh nút Post */
+    justify-content: flex-end;
+}
+.create-post-modal-content .modal-footer button.btn-primary {
+    padding: 8px 16px;
+    font-size: 1rem;
+}
+
+.create-post-modal-textarea {
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-color) !important;
+    resize: none;
+    box-shadow: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    min-height: 80px; /* Điều chỉnh chiều cao textarea */
+    font-size: 1rem; /* Kích thước chữ */
+}
+
+/* Friend List Page Styles */
+.friend-list-container {
+    max-width: 700px;
+    margin: 20px auto;
+}
+.friend-list-item {
+    background-color: var(--card-background-color);
+    border-color: var(--border-color);
+    color: var(--text-color);
+    margin-bottom: 10px;
+    border-radius: 8px !important; /* Override bootstrap */
+}
+.friend-list-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}

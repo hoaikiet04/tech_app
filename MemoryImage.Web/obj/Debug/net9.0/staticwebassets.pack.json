@@ -1,0 +1,309 @@
+{
+  "Files": [
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\MemoryImage.Web.bundle.scp.css",
+      "PackagePath": "staticwebassets\\MemoryImage.Web.s4ojreyqbw.bundle.scp.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\images\\pf.png",
+      "PackagePath": "staticwebassets\\images\\pf.png"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\images\\posts\\201cfa14-6652-4733-90e7-005e321213fc_IMG_3512.JPG",
+      "PackagePath": "staticwebassets\\images\\posts\\201cfa14-6652-4733-90e7-005e321213fc_IMG_3512.JPG"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\images\\posts\\ef4a6722-c5f9-4121-b88f-da7e01745b35_IMG_3095.JPG",
+      "PackagePath": "staticwebassets\\images\\posts\\ef4a6722-c5f9-4121-b88f-da7e01745b35_IMG_3095.JPG"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\images\\profile_pictures\\3be8b890-9748-4831-b575-1c266ad43c7f_IMG_3099.JPG",
+      "PackagePath": "staticwebassets\\images\\profile_pictures\\3be8b890-9748-4831-b575-1c266ad43c7f_IMG_3099.JPG"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\images\\profile_pictures\\3d90f3df-9c6f-4cda-ac0f-d5c2eab16995_IMG_6294.JPG",
+      "PackagePath": "staticwebassets\\images\\profile_pictures\\3d90f3df-9c6f-4cda-ac0f-d5c2eab16995_IMG_6294.JPG"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\images\\profile_pictures\\509fc3a9-8b1f-449f-b796-b409bb333128_IMG_5946.JPG",
+      "PackagePath": "staticwebassets\\images\\profile_pictures\\509fc3a9-8b1f-449f-b796-b409bb333128_IMG_5946.JPG"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\js\\postInteraction.js",
+      "PackagePath": "staticwebassets\\js\\postInteraction.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "P:\\Work\\CNPM\\Memory Image\\MemoryImage\\MemoryImage.Web\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MemoryImage.Web.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MemoryImage.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.MemoryImage.Web.props",
+      "PackagePath": "build\\MemoryImage.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.MemoryImage.Web.props",
+      "PackagePath": "buildMultiTargeting\\MemoryImage.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.MemoryImage.Web.props",
+      "PackagePath": "buildTransitive\\MemoryImage.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

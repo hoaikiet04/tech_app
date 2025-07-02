@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MemoryImage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --background-color: #101010;
+            --text-color: #f1f1f1;
+            --text-color-secondary: #a8a8a8;
+            --border-color: #363636;
+            --card-background-color: #181818;
+            --input-background-color: #262626;
+            --primary-accent-color: #1d9bf0;
+        }
+
+        body {
+            /* Nền tối với gradient tinh tế */
+            background-color: #000;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 20px 20px;
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .auth-card {
+            background-color: var(--card-background-color);
+            padding: 30px 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .auth-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .auth-subtitle {
+            color: var(--text-color-secondary);
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            background-color: var(--input-background-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            background-color: var(--input-background-color);
+            color: var(--text-color);
+            border-color: var(--primary-accent-color);
+            box-shadow: none;
+        }
+
+        .form-control::placeholder {
+            color: #6a6a6a;
+        }
+
+        .btn-auth {
+            background-color: var(--text-color);
+            color: var(--background-color);
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-top: 10px;
+            transition: opacity 0.2s;
+        }
+        
+        .btn-auth:hover {
+            color: var(--background-color);
+            opacity: 0.9;
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .auth-footer a {
+            color: var(--primary-accent-color);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .form-check-input {
+             background-color: var(--input-background-color);
+             border-color: var(--border-color);
+        }
+        .form-check-input:checked {
+            background-color: var(--primary-accent-color);
+            border-color: var(--primary-accent-color);
+        }
+        .form-check-label {
+            color: var(--text-color-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loại bỏ cấu trúc 2 cột, chỉ giữ lại phần biểu mẫu -->
+    @RenderBody()
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

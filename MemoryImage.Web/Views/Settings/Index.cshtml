@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Cài đặt tài khoản";
+}
+
+<div class="container mt-4" style="max-width: 700px;">
+    <h2 class="mb-4">Cài đặt tài khoản</h2>
+
+    <div class="card bg-danger bg-opacity-10 border-danger">
+        <div class="card-header">
+            <h5 class="text-danger mb-0">Vùng nguy hiểm</h5>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Xóa tài khoản này</h5>
+            <p class="card-text">Một khi bạn xóa tài khoản, sẽ không có đường quay lại. Tất cả dữ liệu của bạn, bao gồm bài đăng, bình luận, và các mối quan hệ bạn bè, sẽ bị xóa vĩnh viễn. Xin hãy chắc chắn.</p>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+                Xóa tài khoản của bạn
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal xác nhận xóa -->
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="background-color: #262626; color: white;">
+      <div class="modal-header" style="border-bottom-color: var(--border-color);">
+        <h5 class="modal-title" id="deleteAccountModalLabel">Bạn có chắc chắn không?</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Hành động này <strong>không thể</strong> hoàn tác. Thao tác này sẽ xóa vĩnh viễn tài khoản và tất cả dữ liệu liên quan của bạn.</p>
+        <p>Vui lòng xác nhận để tiếp tục.</p>
+      </div>
+      <div class="modal-footer" style="border-top-color: var(--border-color);">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <form asp-controller="Settings" asp-action="DeleteAccount" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-danger">Tôi hiểu, xóa tài khoản của tôi</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+﻿services:
+  memoryimage:
+    image: memoryimage
+    build:
+      context: .
+      dockerfile: MemoryImage/Dockerfile
+

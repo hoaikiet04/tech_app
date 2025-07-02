@@ -1,0 +1,13 @@
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\bin\Debug\net9.0\MemoryImage.Models.deps.json
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\bin\Debug\net9.0\MemoryImage.Models.dll
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\bin\Debug\net9.0\MemoryImage.Models.pdb
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\obj\Debug\net9.0\MemoryImage.Models.csproj.AssemblyReference.cache
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\obj\Debug\net9.0\MemoryImage.Models.GeneratedMSBuildEditorConfig.editorconfig
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\obj\Debug\net9.0\MemoryImage.Models.AssemblyInfoInputs.cache
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\obj\Debug\net9.0\MemoryImage.Models.AssemblyInfo.cs
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\obj\Debug\net9.0\MemoryImage.Models.csproj.CoreCompileInputs.cache
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\obj\Debug\net9.0\MemoryImage.Models.dll
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\obj\Debug\net9.0\refint\MemoryImage.Models.dll
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\obj\Debug\net9.0\MemoryImage.Models.pdb
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\obj\Debug\net9.0\ref\MemoryImage.Models.dll
+P:\Work\CNPM\Memory Image\MemoryImage\MemoryImage.Models\obj\Debug\net9.0\MemoryImage.Models.sourcelink.json

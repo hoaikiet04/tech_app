@@ -1,0 +1,204 @@
+﻿@using System.Security.Claims
+@using MemoryImage.Models
+@model MemoryImage.Models.ViewModels.DashboardViewModel
+@{
+ViewData["Title"] = "Home";
+var currentUserId = Model?.CurrentUser?.Id ?? 0;
+}
+
+<div class="container-fluid" style="max-width: 620px; margin: 0 auto; padding: 0;">
+
+    @* Hiển thị danh sách lời mời kết bạn (nếu có) *@
+    @await Html.PartialAsync("_FriendRequestsPartial", Model.PendingRequests)
+
+    @* --- KHU VỰC KÍCH HOẠT MODAL TẠO BÀI ĐĂNG --- *@
+    <div class="post-card create-post-trigger" data-bs-toggle="modal" data-bs-target="#createPostModal">
+        <div class="post-avatar-col">
+            <img src="@(Model.CurrentUser?.ProfilePicture ?? "/images/pf.png")" class="post-avatar" alt="User Avatar">
+        </div>
+        <div class="post-body">
+            <span class="text-muted">What's on your mind?</span>
+        </div>
+        <div class="ms-auto">
+            <button class="btn btn-outline-secondary rounded-pill disabled">Post</button>
+        </div>
+    </div>
+
+    @if (Model?.NewsFeedPosts != null && Model.NewsFeedPosts.Any())
+    {
+    foreach (var post in Model.NewsFeedPosts)
+    {
+    <div class="post-card" id="post-@post.Id">
+        <div class="post-avatar-col">
+            <img src="@(post.User?.ProfilePicture ?? "/images/pf.png")" class="post-avatar" alt="User Avatar">
+        </div>
+        <div class="post-body">
+            <div class="post-header">
+                <div class="post-author-container" data-hovercard-id="hover-card-@post.UserId">
+                    <a asp-action="Index" asp-controller="Profile" asp-route-id="@post.User?.Id" class="post-user-name">
+                        @(post.User?.FullName ?? "Unknown User")
+                    </a>
+
+                    @if (post.UserId != currentUserId)
+                    {
+                        <div class="author-hover-card" id="hover-card-@post.UserId">
+                            @* ... Nội dung bên trong hover-card giữ nguyên ... *@
+                            <div class="hover-card-header">
+                                <img src="@(post.User?.ProfilePicture ?? "/images/pf.png")" class="hover-card-avatar" />
+                                @{
+                                    var status = Model.FriendshipStatuses.GetValueOrDefault(post.UserId);
+                                    if (status == null)
+                                    {
+                                        <button class="btn btn-sm btn-light rounded-pill" onclick="sendFriendRequest(@post.UserId)">Follow</button>
+                                    }
+                                    else if (status == FriendshipStatus.Pending)
+                                    {
+                                        <button class="btn btn-sm btn-outline-warning rounded-pill disabled">Requested</button>
+                                    }
+                                }
+                            </div>
+                            <div class="hover-card-info">
+                                <p class="name mb-0">@post.User.FullName</p>
+                                <p class="email">@("@" + post.User.Email.Split('@')[0])</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <span class="post-time me-3">@post.CreatedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</span>
+                    @if (post.UserId == currentUserId)
+                    {
+                    <div class="dropdown">
+                        <button class="btn-icon" type="button" data-bs-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" asp-action="EditPost" asp-controller="Home" asp-route-id="@post.Id"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                            <li><button class="dropdown-item text-danger" onclick="deletePost(@post.Id)"><i class="fas fa-trash-alt me-2"></i>Delete</button></li>
+                        </ul>
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="post-content"><p>@post.Content</p></div>
+            @if (!string.IsNullOrWhiteSpace(post.ImageUrl))
+            {
+            <img src="@post.ImageUrl" class="post-image" alt="Post Image">
+            }
+            <div class="post-actions">
+                <button class="btn-icon like-button @(Model.UserLikeStatus.GetValueOrDefault(post.Id) ? "liked" : "")" data-post-id="@post.Id">
+                    <i class="fa-heart @(Model.UserLikeStatus.GetValueOrDefault(post.Id) ? "fas" : "far")"></i>
+                </button>
+                <span class="like-count">@Model.LikeCounts.GetValueOrDefault(post.Id)</span>
+
+                <button class="btn-icon comment-toggle-button" data-post-id="@post.Id">
+                    <i class="far fa-comment"></i>
+                </button>
+                <span class="comment-count">@Model.Comments.GetValueOrDefault(post.Id)?.Count</span>
+            </div>
+
+            <div class="comment-section" id="comment-section-@post.Id">
+                <div class="comment-list" id="comment-list-@post.Id">
+                    @if (Model.Comments.TryGetValue(post.Id, out var commentsForPost))
+                    {
+                    @foreach (var comment in commentsForPost)
+                    {
+                    <div class="comment-item">
+                        <img src="@(comment.User?.ProfilePicture ?? "/images/pf.png")" alt="Avatar" class="comment-avatar" />
+                        <div class="comment-body">
+                            <a asp-action="Index" asp-controller="Profile" asp-route-id="@comment.User.Id" class="comment-user-name">@comment.User.FullName</a>
+                            <p class="comment-content">@comment.Content</p>
+                        </div>
+                    </div>
+                    }
+                    }
+                </div>
+                <div class="comment-input-form mt-3">
+                    <img src="@(Model.CurrentUser?.ProfilePicture ?? "/images/pf.png")" class="comment-avatar" />
+                    <input type="text" class="form-control comment-input" data-post-id="@post.Id" placeholder="Write a comment...">
+                    <button class="btn btn-primary btn-sm rounded-pill post-comment-button" data-post-id="@post.Id" style="display: none;">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+    }
+    else
+    {
+    <div class="text-center p-5 text-muted">
+        <h4>Welcome to MemoryImage!</h4>
+        <p>It looks a bit empty here. Try creating your first post!</p>
+    </div>
+    }
+</div>
+
+
+@* --- MODAL TẠO BÀI ĐĂNG MỚI (THEO STYLE CỦA THREADS) --- *@
+<div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content create-post-modal-content">
+            <form asp-action="CreatePost" asp-controller="Home" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createPostModalLabel">New Post</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex gap-3">
+                        <div class="post-avatar-col">
+                            <img src="@(Model.CurrentUser?.ProfilePicture ?? "/images/pf.png")" class="post-avatar" alt="User Avatar">
+                        </div>
+                        <div class="post-body" style="flex-grow: 1;">
+                            <span class="fw-bold">@(Model.CurrentUser?.FullName)</span>
+                            <textarea asp-for="CreatePost.Content" class="form-control create-post-modal-textarea" placeholder="What's on your mind?"></textarea>
+
+                            <div id="modal-image-preview-container" style="display: none; margin-top: 10px; position: relative;">
+                                <img id="modal-image-preview" src="#" alt="Image Preview" class="post-image" />
+                                <button type="button" class="btn-close btn-close-white" id="modal-remove-image-btn" style="position: absolute; top: 10px; right: 10px; background-color: rgba(0,0,0,0.5);"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div>
+                        <label for="modalImageFile" class="btn-icon" style="cursor: pointer;" title="Add Photo">
+                            <i class="far fa-image fa-lg"></i>
+                        </label>
+                        <input asp-for="CreatePost.ImageFile" type="file" id="modalImageFile" class="d-none" accept="image/*" />
+                    </div>
+                    <button type="submit" class="btn btn-primary rounded-pill px-4">Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Modal Image Preview Handler (specific to Home page's create post modal)
+            $('#modalImageFile').on('change', function(event) {
+                if (event.target.files && event.target.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#modal-image-preview').attr('src', e.target.result);
+                        $('#modal-image-preview-container').show();
+                    }
+                    reader.readAsDataURL(event.target.files[0]);
+                }
+            });
+
+            $('#modal-remove-image-btn').on('click', function() {
+                $('#modalImageFile').val("");
+                $('#modal-image-preview-container').hide();
+                $('#modal-image-preview').attr('src', '#');
+            });
+
+            // Reset modal on close
+            $('#createPostModal').on('hidden.bs.modal', function () {
+                $('#modal-remove-image-btn').click();
+                $('.create-post-modal-textarea').val('');
+            });
+        });
+    </script>
+}

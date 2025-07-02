@@ -1,0 +1,183 @@
+﻿@using System.Security.Claims
+@using MemoryImage.Models
+@model MemoryImage.Models.ViewModels.UserProfileViewModel
+@{
+ViewData["Title"] = $"{Model.User.FullName}'s Profile";
+var currentUserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0");
+}
+
+<div class="profile-v2-container">
+    <header class="profile-v2-header">
+        <div class="profile-v2-info">
+            <h1>@Model.User.FullName</h1>
+            <p class="profile-username">@("@" + Model.User.Email?.Split('@')[0])</p>
+            @if (!string.IsNullOrWhiteSpace(Model.User.Bio))
+            {
+            <p class="profile-bio">@Model.User.Bio</p>
+            }
+        </div>
+        <div class="profile-v2-avatar-container">
+            <img src="@(Model.User.ProfilePicture ?? "/images/pf.png")" alt="Profile Picture" class="profile-v2-avatar">
+        </div>
+    </header>
+
+    <div class="profile-v2-actions">
+        @if (Model.IsCurrentUser)
+        {
+        <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit profile</button>
+        }
+        else
+        {
+        @if (Model.FriendshipStatus == FriendshipStatus.Accepted)
+        {
+        <button class="btn btn-outline-danger w-100" onclick="removeFriend(@Model.User.Id)">Unfriend</button>
+        }
+        else if (Model.FriendshipStatus == FriendshipStatus.Pending)
+        {
+        <span class="btn btn-outline-warning w-100 disabled">Request Sent</span>
+        }
+        else
+        {
+        <button class="btn btn-outline-primary w-100" onclick="sendFriendRequest(@Model.User.Id)">Follow</button>
+        }
+        }
+    </div>
+
+    <div class="profile-tabs">
+        <div class="tab-item active">Posts</div>
+    </div>
+
+    <div class="profile-posts-container">
+        @if (Model.Posts != null && Model.Posts.Any())
+        {
+        foreach (var post in Model.Posts)
+        {
+        @* Cấu trúc post-card được đồng bộ hoàn toàn với trang Home *@
+        <div class="post-card" id="post-@post.Id">
+            <div class="post-avatar-col">
+                <img src="@(Model.User.ProfilePicture ?? "/images/pf.png")" class="post-avatar" alt="User Avatar">
+            </div>
+            <div class="post-body">
+                <div class="post-header">
+                    <div class="post-author-container" data-hovercard-id="hover-card-@post.UserId">
+                        <a asp-action="Index" asp-controller="Profile" asp-route-id="@post.User.Id" class="post-user-name">@post.User.FullName</a>
+                        @* Hover card không cần thiết ở đây vì tất cả bài đăng đều của cùng 1 người, nhưng để cấu trúc giống nhau *@
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="post-time me-3">@post.CreatedAt.ToLocalTime().ToString("dd MMM")</span>
+                        @if (post.UserId == currentUserId)
+                        {
+                        <div class="dropdown">
+                            <button class="btn-icon" type="button" data-bs-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" asp-action="EditPost" asp-controller="Home" asp-route-id="@post.Id"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                                <li><button class="dropdown-item text-danger" onclick="deletePost(@post.Id)"><i class="fas fa-trash-alt me-2"></i>Delete</button></li>
+                            </ul>
+                        </div>
+                        }
+                    </div>
+                </div>
+                <div class="post-content"><p>@post.Content</p></div>
+                @if (!string.IsNullOrWhiteSpace(post.ImageUrl))
+                {
+                <img src="@post.ImageUrl" class="post-image" alt="Post Image">
+                }
+                <div class="post-actions">
+                    <button class="btn-icon like-button @(Model.UserLikeStatus.GetValueOrDefault(post.Id) ? "liked" : "")" data-post-id="@post.Id">
+                        <i class="fa-heart @(Model.UserLikeStatus.GetValueOrDefault(post.Id) ? "fas" : "far")"></i>
+                    </button>
+                    <span class="like-count">@Model.LikeCounts.GetValueOrDefault(post.Id)</span>
+
+                    <button class="btn-icon comment-toggle-button" data-post-id="@post.Id">
+                        <i class="far fa-comment"></i>
+                    </button>
+                    <span class="comment-count">@Model.Comments.GetValueOrDefault(post.Id)?.Count</span>
+                </div>
+                <div class="comment-section" id="comment-section-@post.Id">
+                    <div class="comment-list" id="comment-list-@post.Id">
+                        @if (Model.Comments.TryGetValue(post.Id, out var commentsForPost))
+                        {
+                        @foreach (var comment in commentsForPost)
+                        {
+                        <div class="comment-item">
+                            <img src="@(comment.User?.ProfilePicture ?? "/images/pf.png")" alt="Avatar" class="comment-avatar" />
+                            <div class="comment-body">
+                                <a asp-action="Index" asp-controller="Profile" asp-route-id="@comment.User.Id" class="comment-user-name">@comment.User.FullName</a>
+                                <p class="comment-content">@comment.Content</p>
+                            </div>
+                        </div>
+                        }
+                        }
+                    </div>
+                    <div class="comment-input-form mt-3">
+                        <img src="@(Model.LoggedInUser?.ProfilePicture ?? "/images/pf.png")" class="comment-avatar" />
+                        <input type="text" class="form-control comment-input" data-post-id="@post.Id" placeholder="Write a comment...">
+                        <button class="btn btn-primary btn-sm rounded-pill post-comment-button" data-post-id="@post.Id" style="display: none;">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+        }
+        else
+        {
+        <p class="text-center text-muted mt-5">This user hasn't posted anything yet.</p>
+        }
+    </div>
+</div>
+
+
+@if (Model.IsCurrentUser)
+{
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content create-post-modal-content">
+            <form asp-action="EditProfile" asp-controller="Profile" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <div class="d-flex align-items-center">
+                        <button type="button" class="btn-close btn-close-white me-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                    </div>
+                    <button type="submit" class="btn btn-light rounded-pill">Save</button>
+                </div>
+                <div class="modal-body edit-profile-body">
+                    <div class="edit-profile-banner"></div>
+                    <div class="edit-profile-main">
+                        <div class="edit-profile-avatar-wrapper">
+                            <label for="imageUpload" class="edit-profile-avatar-overlay" title="Change profile picture">
+                                <i class="fas fa-camera fa-lg"></i>
+                            </label>
+                            <img src="@(Model.User.ProfilePicture ?? "/images/pf.png")" alt="Profile Picture" class="edit-profile-avatar" id="imagePreview">
+                        </div>
+                        <div class="edit-profile-form">
+                            <input type="file" name="ImageFile" id="imageUpload" class="d-none" accept="image/*" />
+                            <div class="mb-3">
+                                <label for="bioText" class="form-label">Bio</label>
+                                <textarea name="Bio" class="form-control" id="bioText" rows="3">@Model.User.Bio</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts {
+<script>
+    $(document).ready(function() {
+        // Script này chỉ xử lý các sự kiện của riêng trang Profile
+
+        // Preview image in Edit Profile modal
+        $('#imageUpload').on('change', function(event) {
+            if (event.target.files && event.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) { $('#imagePreview').attr('src', e.target.result); }
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        });
+    });
+</script>
+}

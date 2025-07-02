@@ -1,0 +1,35 @@
+@using System.Security.Claims
+@using MemoryImage.Models
+@inject MemoryImage.Business.Services.IFriendService _friendService
+
+@{
+    var suggestions = new List<User>();
+    if (User.Identity != null && User.Identity.IsAuthenticated)
+    {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+        if (userIdClaim != null)
+        {
+            var userId = int.Parse(userIdClaim.Value);
+            suggestions = await _friendService.GetFriendSuggestionsAsync(userId, 3);
+        }
+    }
+}
+
+@if (suggestions.Any())
+{
+    <div class="sidebar-friends-list">
+        <h6 class="ps-2 text-muted mb-2">People You May Know</h6>
+        @foreach (var suggestion in suggestions)
+        {
+            <div class="sidebar-friend-item">
+                <a asp-action="Index" asp-controller="Profile" asp-route-id="@suggestion.Id" class="d-flex align-items-center text-decoration-none flex-grow-1" style="gap: 12px;">
+                    <img src="@(suggestion.ProfilePicture ?? "/images/pf.png")" alt="Avatar" class="sidebar-friend-avatar">
+                    <span style="color: var(--text-color);">@suggestion.FullName</span>
+                </a>
+                <button class="btn btn-sm btn-outline-primary" style="border-radius: 15px; font-size: 0.8rem; font-weight: 600;" onclick="sendFriendRequest(@suggestion.Id)">
+                    Add
+                </button>
+            </div>
+        }
+    </div>
+}
