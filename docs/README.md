@@ -9,45 +9,33 @@
 ### 👤 Người dùng
 
 #### 1. Quản lý tài khoản
-- Đăng ký, đăng nhập và đăng xuất an toàn.
-- Cập nhật thông tin cá nhân (tên, email, ảnh đại diện).
-- Tùy chỉnh cài đặt tài khoản và quyền riêng tư.
-
-#### 2. Quản lý ảnh
-- Tải ảnh kèm tiêu đề và câu chuyện mô tả.
-- Tổ chức ảnh theo album hoặc bộ sưu tập.
-- Tìm kiếm ảnh theo từ khóa, thẻ, ngày/tháng hoặc vị trí.
-- Thiết lập quyền riêng tư cho từng ảnh/album.
-
-#### 3. Tương tác xã hội
-- Kết bạn và theo dõi người dùng khác.
-- Bảng tin cá nhân hóa hiển thị ảnh của bạn bè.
-- Thích, bình luận, chia sẻ ảnh/album.
-- Nhận thông báo về các tương tác.
-
-#### 4. Ký ức (Memory)
-- "Vào ngày này": gợi lại những kỷ niệm cũ.
-- Dòng thời gian ảnh cá nhân.
-- Bộ sưu tập theo chủ đề: sự kiện, con người, địa điểm.
-
+- Đăng ký tài khoản: Cho phép người dùng mới tạo tài khoản trong hệ thống bằng cách cung cấp các thông tin cơ bản như họ, tên, email và mật khẩu.
+- Đăng nhập & Đăng xuất: Cung cấp khả năng đăng nhập an toàn để truy cập hệ thống và đăng xuất để kết thúc phiên làm việc.
+Xem & Chỉnh sửa Hồ sơ: Người dùng có thể xem hồ sơ cá nhân của mình, bao gồm ảnh đại diện, ảnh bìa, tiểu sử, và cập nhật các thông tin này bất cứ lúc nào.
+- Cài đặt tài khoản: Truy cập trang cài đặt để quản lý các tùy chọn tài khoản và thực hiện hành động như xóa tài khoản của chính mình.
+#### 2. Tương tác Bài đăng
+- Tạo bài đăng mới: Cho phép người dùng chia sẻ nội dung văn bản và/hoặc hình ảnh kèm theo lên dòng thời gian của họ.
+- Xem bài đăng: Hiển thị dòng thời gian các bài đăng từ bạn bè (trên Trang chủ) hoặc các bài đăng của chính họ (trên Trang hồ sơ cá nhân).
+- Thích (Like) bài đăng: Thể hiện sự yêu thích đối với bài đăng của người khác.
+- Bình luận bài đăng: Giao tiếp và chia sẻ ý kiến về một bài đăng cụ thể.
+- Chỉnh sửa & Xóa bài đăng của mình: Người dùng có quyền sửa đổi hoặc xóa các bài đăng mà họ đã tạo.
+#### 3. Kết nối & Tương tác xã hội
+- Tìm kiếm người dùng: Khám phá và tìm kiếm các tài khoản người dùng khác trong hệ thống.
+- Xem Hồ sơ người dùng khác: Truy cập và xem thông tin công khai cùng các bài đăng của người dùng khác.
+- Quản lý Yêu cầu Kết bạn: Gửi yêu cầu kết bạn đến người khác, cũng như chấp nhận hoặc từ chối các yêu cầu kết bạn nhận được.
+- Hủy kết bạn (Unfriend): Chấm dứt mối quan hệ bạn bè với một người dùng khác.
+- Xem Gợi ý bạn bè: Nhận các đề xuất về những người dùng mà họ có thể muốn kết nối.
 ---
 
 ### 🛠️ Quản trị viên
 
-#### 1. Kiểm duyệt nội dung
-- Xem và xử lý nội dung bị báo cáo.
-- Thực thi quy định cộng đồng.
-- Quản lý tài khoản và quyền người dùng.
-
-#### 2. Quản lý hệ thống
-- Giám sát hiệu suất và tài nguyên hệ thống.
-- Tạo báo cáo và phân tích.
-- Quản lý lưu trữ dữ liệu.
-
-#### 3. Phân tích và thống kê
-- Xem báo cáo: người dùng hoạt động nhiều nhất, ảnh được thích nhiều nhất.
-- Quản lý hiệu quả tài nguyên lưu trữ.
-
+#### 1. Quản lý người dùng
+- Truy cập Admin Dashboard: Quản trị viên có quyền truy cập vào bảng điều khiển quản trị tập trung để thực hiện các tác vụ quản lý.
+- Xem danh sách người dùng: Hiển thị danh sách tất cả các tài khoản người dùng trong hệ thống với thông tin chi tiết về vai trò và trạng thái.
+- Xóa người dùng: Cho phép quản trị viên xóa vĩnh viễn bất kỳ tài khoản người dùng nào khỏi hệ thống.
+#### 2. Quản lý nội dung (Bài đăng)
+- Xem danh sách bài đăng gần đây: Hiển thị tổng quan về các bài đăng gần đây nhất được tạo trong hệ thống.
+- Xóa bài đăng (của bất kỳ ai): Cung cấp khả năng xóa vĩnh viễn bất kỳ bài đăng nào trong hệ thống, bất kể tác giả.
 ---
 
 ## Atlassian
